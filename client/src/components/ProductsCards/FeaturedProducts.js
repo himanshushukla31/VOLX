@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import "./FeaturedProducts.css";
-const axios = require('axios');
+const axios = require("axios");
 
 const FeaturedProducts = () => {
+  const [products, setProducts] = useState(null);
 
-  const [products , setProducts] = useState(null);
-  
-  useEffect(()=>{
-  
+  useEffect(() => {
     const fetchData = async (url) => {
       await axios
         .get(url)
-        .then((responce) => {
-          if(responce.data.length>0){
-
-            setProducts(responce.data)
+        .then((response) => {
+          const featuredProducts = response.data.filter(
+            (product) => product.isFeatured
+          );
+          if (featuredProducts.length > 0) {
+            setProducts(featuredProducts);
           }
-          console.log(responce.data);
+          console.log(featuredProducts);
         })
         .catch((err) => {
           console.log(err);
         });
     };
-    fetchData("http://127.0.0.1:5000/products/featured");
-  },[])
-  
+    fetchData("/products/products");
+  }, []);
+
   return (
     <>
-    
       {!products ? (
         <div className="featured_image">
           <div className="heading">Featured Section</div>
@@ -41,10 +40,7 @@ const FeaturedProducts = () => {
               return (
                 <article key={items._id}>
                   <span>Featured</span>
-                  <img
-                    src={items.imageLink[0].link}
-                    alt="img"
-                  />
+                  <img src={items.imageLink[0].link} alt="img" />
                   <div className="main_text">
                     <strong>{items.title}</strong>
                     <h3>₹{items.price}</h3>
@@ -64,6 +60,6 @@ const FeaturedProducts = () => {
       )}
     </>
   );
-}
+};
 
-export default FeaturedProducts
+export default FeaturedProducts;

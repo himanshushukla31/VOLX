@@ -10,15 +10,18 @@ const Products = () => {
     const fetchData = async (url) => {
       await axios
         .get(url)
-        .then((responce) => {
-          setProducts(responce.data);
-          console.log(responce.data);
+        .then((response) => {
+          const normalProducts = response.data.filter(
+            (product) => !product.isFeatured
+          );
+          setProducts(normalProducts);
+          console.log(normalProducts);
         })
         .catch((err) => {
           console.log(err);
         });
     };
-    fetchData("http://127.0.0.1:5000/products/products");
+    fetchData("/products/products");
   }, []);
 
   return (

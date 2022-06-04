@@ -1,0 +1,161 @@
+
+
+.header {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 2px  0px 0px  #d8d8d8;
+  height: 60px;
+}
+
+.header_logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0px 20px;
+  height: 30px;
+}
+
+.header_search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 12px;
+  margin-right: 15px;
+}
+
+.header_searchInput {
+  border: 2px solid;
+  height: 24px;
+  width: 100%;
+  padding: 10px;
+  
+}
+
+.header_Menu {
+  margin: 16px;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header_MenuOption1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 12px;
+  text-decoration: underline;
+}
+.header_MenuOption2 {
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  border: 4px solid;
+  border-radius: 24%;
+  border-bottom-color: gold;
+  border-top-color: rgb(255, 39, 172);
+  border-right-color: rgb(126, 236, 29);
+  border-left-color: rgb(128, 15, 227);
+}
+
+.search_icon {
+  height: 22px;
+
+  background-color: black;
+  color: white;
+  padding: 13px;
+}
+
+.sell_icon {
+  font-size: 24px;
+  align-items: center;
+}
+
+
+
+.header_searchInput:focus {
+  border: none;
+  outline: 3px solid aqua;
+}
+
+@media only screen and (max-width: 600px) {
+  .header_Menu {
+    display: none;
+  }
+  body{
+  margin: 0 0 80px 0;
+}
+}
+
+/* Mobile Navbar css */
+
+.nav-menu {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  will-change:transform;
+	transform: translateZ(0);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 2px double blue;
+  padding: 3px;
+  margin-top: 48px;
+}
+
+.nav-btn {
+  
+  border-radius: 33%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-btn > img {
+  
+  width: 24px;
+}
+
+.nav-btn:hover {
+  
+  background: #b296ff;
+  transition: 0.2s all ease-in-out;
+}
+
+.nav-btn:focus, .nav-btn.active {
+  background: rgb(165, 129, 255);
+  color: white;
+  transition: 0.2s all ease-in-out;
+}
+
+@media screen and (min-width: 600px) {
+  .nav-menu {
+    display: none;
+  }
+  
+}
